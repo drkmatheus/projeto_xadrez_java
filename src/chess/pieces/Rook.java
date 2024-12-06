@@ -22,9 +22,10 @@ public class Rook extends ChessPiece {
         boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
 
         Position p = new Position(0, 0);
-        // verifica acima
-        p.setValues(position.getRow() - 1, position.getColumn() );
-        while (getBoard().positionExists(p) && getBoard().thereIsAPiece(p)) {
+
+        // above
+        p.setValues(position.getRow() - 1, position.getColumn());
+        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
             p.setRow(p.getRow() - 1);
         }
@@ -32,9 +33,9 @@ public class Rook extends ChessPiece {
             mat[p.getRow()][p.getColumn()] = true;
         }
 
-        // verifica a esquerda
-        p.setValues(position.getRow(), position.getColumn() - 1 );
-        while (getBoard().positionExists(p) && getBoard().thereIsAPiece(p)) {
+        // left
+        p.setValues(position.getRow(), position.getColumn() - 1);
+        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
             p.setColumn(p.getColumn() - 1);
         }
@@ -42,9 +43,9 @@ public class Rook extends ChessPiece {
             mat[p.getRow()][p.getColumn()] = true;
         }
 
-        // verifica a direita
-        p.setValues(position.getRow(), position.getColumn() + 1 );
-        while (getBoard().positionExists(p) && getBoard().thereIsAPiece(p)) {
+        // right
+        p.setValues(position.getRow(), position.getColumn() + 1);
+        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
             p.setColumn(p.getColumn() + 1);
         }
@@ -52,9 +53,9 @@ public class Rook extends ChessPiece {
             mat[p.getRow()][p.getColumn()] = true;
         }
 
-        // verifica abaixo
-        p.setValues(position.getRow() + 1, position.getColumn() );
-        while (getBoard().positionExists(p) && getBoard().thereIsAPiece(p)) {
+        // below
+        p.setValues(position.getRow() + 1, position.getColumn());
+        while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
             mat[p.getRow()][p.getColumn()] = true;
             p.setRow(p.getRow() + 1);
         }
